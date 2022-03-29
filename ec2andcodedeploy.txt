@@ -1,0 +1,28 @@
+// codedeploy 설치
+
+// ec2에서 사용할 역할만들고(서비스 ec2, AmazonEC2RoleforAWS-CodeDeploy) ec2에 연결
+// ec2 재부팅
+
+$ aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
+$ chmod +x ./install && sudo ./install auto
+$ sudo service codedeploy-agent status
+
+
+
+// codedeploy
+// codedeploy에서 ec2에 접근하려면 권한 필요함
+// 서비스 codedeploy
+
+aws 배포 3형제
+Code Commit
+깃허브와 같은 코드 저장소의 역할 (거의 사용되지 않음)
+Code Build
+Travis CI, Circle CI와 마찬가지로 빌드용 서비스(역시 거의 사용되지 않음)
+CodeDeploy
+AWS의 배포 서비스
+Commit이나 Build는 대체제가 있어 AWS서비스를 사용하지 않지만, CodeDeploy는 대체제가 없음
+오토 스케일링 그룹 배포, 블루 그린 배포, 롤링 배포, EC2 단독 배포 등 많은 기능을 지원
+
+어플리케이션 생성
+ec2/온프레미스 선택함
+서비스역할에 아까만든 역할 연결

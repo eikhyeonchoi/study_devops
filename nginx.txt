@@ -1,0 +1,18 @@
+// amazon linux2 기준 nginx 설치
+$ sudo amazon-linux-extras install nginx1
+$ nginx -v
+
+// 시작
+$ sudo service nginx start
+
+// 확인
+$ systemctl status nginx
+
+// 재부팅시 자동 재시작
+$ systemctl enable nginx.service
+
+// ec2 80, 443 inbound 넣어주기
+
+// nginx 설정파일 찾기
+$ sudo find / -name nginx.conf
+
