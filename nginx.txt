@@ -16,3 +16,25 @@ $ systemctl enable nginx.service
 // nginx 설정파일 찾기
 $ sudo find / -name nginx.conf
 
+// proxy
+$ sudo find / -name nginx.conf
+
+// 찾고 난 후 내용확인해서 include 
+http {
+    include /etc/nginx/conf.d/*.conf;
+}
+이거 있나 확인하고
+
+$ cd /etc/nginx/conf.d
+$ vi 원하는이름.conf
+
+ex) 프록시설정 80 to 8080;
+server {
+        listen 80;
+        location / {
+                proxy_pass http://localhost:8080;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header Host $http_host;
+        }
+}

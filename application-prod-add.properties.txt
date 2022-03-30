@@ -1,0 +1,18 @@
+# ex) 서버내 application.properties 예시
+
+# db
+spring.jpa.database=mysql
+spring.datasource.url=jdbc:db주소
+spring.datasource.username=아이디
+spring.datasource.password=비밀번호
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.datasource.initialization-mode=always # 이걸 무조건 해줘야됨
+
+# jwt
+jwt.key=
+
+# aws
+AWS_S3_ACCESS_KEY=
+AWS_S3_SECRET_KEY=
+
+# ... 추가할거 하면됨
