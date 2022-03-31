@@ -6,6 +6,7 @@ $ cat /proc/version
 
 // 선택
 https://dev.mysql.com/downloads/repo/yum/
+https://downloads.mysql.com/archives/community/
 
 // 설치
 $ yum localinstall mysql80-community-release-el7-3.noarch.rpm
@@ -56,3 +57,26 @@ mysql> CREATE USER '아이디'@'로컬/외부 접속' IDENTIFIED BY '비밀번�
 mysql> CREATE DATABASE 데이터베이스명;
 mysql> GRANT ALL PRIVILEGES ON *.* to 'User명'@'%';
 mysql> FLUSH PRIVILEGES;
+
+
+
+
+
+참고
+yum install mysql-community-server설치가 안될 떄
+
+$ yum list installed | grep mysql
+$ yum remove -y mysql-community-*
+
+$ rm -rf /var/lib/mysql
+
+$ rpm -qa | grep mysql
+
+$ rpm -e mysql80-community-release
+
+$ find / -name 'mysql*rpm'
+찾아서 있으면 삭제
+
+#manually remove remaining mysql cache folders
+#from: https://serverfault.com/questions/1028593/mysql-packages-skipped-dependency-problems
+sudo rm -R /var/cache/yum/x86_64/7/mysql*

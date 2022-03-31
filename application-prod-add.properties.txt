@@ -1,18 +1,33 @@
-# ex) 서버내 application.properties 예시
+# 예시임
+
+
 
 # db
-spring.jpa.database=mysql
-spring.datasource.url=jdbc:db주소
+#spring.jpa.database=mysql
+spring.datasource.url=jdbc:mysql://localhost:3306/foobar?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
 spring.datasource.username=아이디
-spring.datasource.password=비밀번호
+spring.datasource.password=비번
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
-spring.datasource.initialization-mode=always # 이걸 무조건 해줘야됨
+
+# flyway
+spring.flyway.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.flyway.url=jdbc:mysql://localhost:3306/foobar?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC
+spring.flyway.user=아이디
+spring.flyway.password=비번
+
+# flyway - mysql 필요 dependency
+# https://mvnrepository.com/artifact/org.flywaydb/flyway-core
+# implementation group: 'org.flywaydb', name: 'flyway-core', version: '8.5.5'
+
+# https://mvnrepository.com/artifact/org.flywaydb/flyway-mysql
+# implementation group: 'org.flywaydb', name: 'flyway-mysql', version: '8.5.5'
+
 
 # jwt
-jwt.key=
+jwt.key=3t5h8i3s3i1s2f4o5o6b7a8r5j4w5t6k7e8y2
 
 # aws
 AWS_S3_ACCESS_KEY=
 AWS_S3_SECRET_KEY=
 
-# ... 추가할거 하면됨
+file.dir=/home/ec2-user/fileDir

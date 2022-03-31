@@ -1,6 +1,7 @@
 # ex) deploy 예시
 
 #!/bin/bash
+# 반드시 이 파일에도 실행권한 줄것 chmod +x deploy.sh
 
 REPOSITORY=/home/ec2-user/jar
 APPLICATION_NAME=foobar
