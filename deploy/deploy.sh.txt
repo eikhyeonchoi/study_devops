@@ -6,9 +6,11 @@
 REPOSITORY=/home/ec2-user/jar
 APPLICATION_NAME=foobar
 
+# 자동 배포일 경우 추가
+# cp /~~/~~/~~/*.jar /~~/~~/~~/
 
 echo "> 현재 구동중인 어플리케이션 pid"
-CURRENT_PID=$(ps -f | grep ${APPLICATION_NAME} | grep jar | awk '{print $2}')
+CURRENT_PID=$(ps -ef | grep ${APPLICATION_NAME} | grep jar | awk '{print $2}')
 echo "> 현재 구동중인 어플리케이션 pid: $CURRENT_PID"
 
 if [ -z "$CURRENT_PID" ]; then

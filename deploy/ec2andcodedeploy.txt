@@ -1,6 +1,7 @@
 // codedeploy 설치
 
-// ec2에서 사용할 역할만들고(서비스 ec2, AmazonEC2RoleforAWS-CodeDeploy) ec2에 연결
+// ec2에서 사용할 역할 make, 서비스 ec2, AmazonEC2RoleforAWS-CodeDeploy
+// ec2에 연결(ec2 인스턴스 -> 보안 -> 역할연결)
 // ec2 재부팅
 
 $ aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
@@ -11,7 +12,7 @@ $ sudo service codedeploy-agent status
 
 // codedeploy
 // codedeploy에서 ec2에 접근하려면 권한 필요함
-// 서비스 codedeploy
+// IAM 역할만들기 -> 서비스 codedeploy
 
 aws 배포 3형제
 Code Commit
@@ -26,3 +27,5 @@ Commit이나 Build는 대체제가 있어 AWS서비스를 사용하지 않지만
 어플리케이션 생성
 ec2/온프레미스 선택함
 서비스역할에 아까만든 역할 연결
+
+배포 그룹생성(경우에 따라 다름 대신 배포할 ec2를 연결해줘야함)

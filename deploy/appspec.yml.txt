@@ -1,0 +1,21 @@
+// codedeploy appspect.yml 예시
+// 제일 중요한건 region을 맞춰야함 ec2 - codedeploy
+
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination : /home/ec2-user/zip
+    overwrite: yes
+
+permissions:
+  - object: /
+    patteren: "**"
+    owner: ec2-user
+    group: ec2-user
+
+hooks:
+  ApplicationStart:
+    - location: /home/ec2-user/deploy/deploy.sh
+      timeout: 60
+      runas: ec2-user
