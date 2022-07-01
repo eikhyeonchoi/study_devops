@@ -1,3 +1,4 @@
+```
 // amazon linux 배포판 버전확인
 $ grep . /etc/*-release
 
@@ -7,12 +8,18 @@ $ cat /proc/version
 // 선택
 https://dev.mysql.com/downloads/repo/yum/
 https://downloads.mysql.com/archives/community/
+다운로드 -> 링크 주소복사
+
 
 // 설치
 $ yum localinstall mysql80-community-release-el7-3.noarch.rpm
 $ yum install mysql-community-server
++ GPG key retrieval failed: [Errno 14] curl#37 - "Couldn't open file /etc/pki/rpm-gpg/RPM-GPG-KEY-mysql-2022" 
+이런 에러 발생시 rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
+
 $ sudo systemctl start mysqld 
 $ sudo systemctl status mysqld
+
 
 // 언어설정
 $ vim /etc/my.cnf
@@ -57,11 +64,10 @@ mysql> CREATE USER '아이디'@'로컬/외부 접속' IDENTIFIED BY '비밀번�
 mysql> CREATE DATABASE 데이터베이스명;
 mysql> GRANT ALL PRIVILEGES ON *.* to 'User명'@'%';
 mysql> FLUSH PRIVILEGES;
+```
 
 
-
-
-
+```
 참고
 yum install mysql-community-server설치가 안될 떄
 
@@ -80,3 +86,4 @@ $ find / -name 'mysql*rpm'
 #manually remove remaining mysql cache folders
 #from: https://serverfault.com/questions/1028593/mysql-packages-skipped-dependency-problems
 sudo rm -R /var/cache/yum/x86_64/7/mysql*
+```
